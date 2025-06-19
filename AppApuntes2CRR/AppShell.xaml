@@ -3,13 +3,27 @@
     x:Class="AppApuntes2CRR.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:AppApuntes2CRR"
+    xmlns:views="clr-namespace:AppApuntes2CRR.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="AppApuntes2CRR">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Notes"
+            ContentTemplate="{DataTemplate views:AllNotesPage}"/>
+        
+        <ShellContent
+            Title="Reminders"
+            ContentTemplate="{DataTemplate views:RemindersPage}"/>
+
+        <ShellContent
+            Title="Weather"
+            ContentTemplate="{DataTemplate views:WeatherPage}"/>
+        
+        <ShellContent
+            Title="About"
+            ContentTemplate="{DataTemplate views:AboutPage}"/>
+
+    </TabBar>
 
 </Shell>
