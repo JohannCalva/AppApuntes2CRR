@@ -1,12 +1,49 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:namespace="clr-namespace:AppApuntes2CRR.ViewModels"
              x:Class="AppApuntes2CRR.Views.WeatherPage"
              Title="WeatherPage">
+    <ContentPage.BindingContext>
+        <namespace:WeatherViewModel />
+    </ContentPage.BindingContext>
     <VerticalStackLayout>
+        <Entry 
+            x:Name="LabelLatitude"
+            Text="{Binding WeatherDataInfo.latitude}"
+            />
+        <Entry 
+            x:Name="LabelLongitude"
+            Text="{Binding WeatherDataInfo.longitude}"
+            />
+        <Button
+            x:Name="RecalculateWeather"
+            Text="Recalculate"
+            Command="{Binding RecalculateWeather}"
+            />
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            x:Name="LabelTemperature"
+            Text="{Binding WeatherDataInfo.current.temperature_2m}"
+            />
+        <Label 
+            x:Name="LabelTemperatureUnit"
+            Text="{Binding WeatherDataInfo.current_units.temperature_2m}"
+            />
+        <Label 
+            x:Name="LabelHumidity"
+            Text="{Binding WeatherDataInfo.current.relative_humidity_2m}"
+            />
+        <Label 
+            x:Name="LabelHumidityUnit"
+            Text="{Binding WeatherDataInfo.current_units.relative_humidity_2m}"
+            />
+        <Label x:Name="LabelTemperatureFull">
+            <Label.Text>
+                <MultiBinding StringFormat="{}{0}{1}">
+                    <Binding Path="WeatherDataInfo.current.rain" />
+                    <Binding Path="WeatherDataInfo.current_units.rain" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
     </VerticalStackLayout>
 </ContentPage>
