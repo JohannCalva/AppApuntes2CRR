@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:AppApuntes2CRR.ViewModels"
-             xmlns:views="clr-namespace:AppApuntes2CRR.Views;assembly=AppApuntes2CRR"
+             xmlns:vm="clr-namespace:TallerGrupalMMVC.ViewModels"
+             xmlns:views="clr-namespace:AppApuntes2CRR.Views"
              x:Class="AppApuntes2CRR.Views.AboutView"
              Title="Acerca del Equipo"
              BackgroundColor="#F8F9FA">
-    
+
+
     <ContentPage.BindingContext>
         <vm:AboutViewModel/>
     </ContentPage.BindingContext>
+
     <ScrollView>
         <StackLayout Padding="0" Spacing="0">
 
+           
             <Frame BackgroundColor="#6C5CE7"
                 CornerRadius="30"
                 HasShadow="True"
@@ -37,6 +39,7 @@
                 </StackLayout>
             </Frame>
 
+            
             <CollectionView ItemsSource="{Binding TeamMembers}"
                            BackgroundColor="Transparent"
                            Margin="0,0,0,20">
@@ -57,6 +60,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+          
             <Frame BackgroundColor="White"
                    CornerRadius="20"
                    HasShadow="True"
@@ -105,13 +109,14 @@
                 </StackLayout>
             </Frame>
 
+            <!-- Codigo generado con IA -->
             <StackLayout Padding="20" Spacing="10">
-                <Label Text="Gracias por usar nuestra aplicación!"
+                <Label Text="Gracias por usar nuestra aplicación! 🙏"
                        FontSize="16"
                        FontAttributes="Bold"
                        TextColor="#6C5CE7"
                        HorizontalOptions="Center"/>
-                <Label Text="Desarrollado por Johhan, Mathias y Jean"
+                <Label Text="Desarrollado con ❤️ usando .NET MAUI"
                        FontSize="12"
                        TextColor="#95A5A6"
                        HorizontalOptions="Center"/>

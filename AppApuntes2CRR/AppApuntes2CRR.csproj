@@ -82,6 +82,9 @@
 	  <MauiXaml Update="Views\RecordatoriosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\TeamMemberCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\WeatherPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
