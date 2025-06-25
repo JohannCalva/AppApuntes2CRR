@@ -63,13 +63,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\RecordatoriosView.xaml.cs">
+	    <DependentUpon>RecordatoriosView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\AboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AllNotesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\RemindersPage.xaml">
+	  <MauiXaml Update="Views\RecordatoriosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\WeatherPage.xaml">

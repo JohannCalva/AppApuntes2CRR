@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TallerGrupalMMVC.ViewModels"
+             x:Class="TallerGrupalMMVC.Views.RecordatoriosView"
+             Title="Recordatorios"
+             BackgroundColor="#F5F5F5">
+
+    <ContentPage.BindingContext>
+        <vm:RecordatoriosViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        
+        <Frame Grid.Row="0" 
+               BackgroundColor="White" 
+               CornerRadius="0" 
+               HasShadow="True" 
+               Padding="20">
+            <StackLayout Spacing="15">
+                <Label Text="📝 Nuevo Recordatorio"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="#333"
+                       HorizontalOptions="Center"/>
+
+                <Entry x:Name="EntryTexto"
+                       Placeholder="Escribe tu recordatorio..."
+                       Text="{Binding NuevoTexto}"
+                       FontSize="16"/>
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <StackLayout Grid.Column="0">
+                        <Label Text="📅 Fecha" FontSize="14" TextColor="#666"/>
+                        <DatePicker Date="{Binding NuevaFecha}"
+                                  Format="dd/MM/yyyy"
+                                  BackgroundColor="LightGray"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Text="🕐 Hora" FontSize="14" TextColor="#666"/>
+                        <TimePicker Time="{Binding NuevaHora}"
+                                  Format="HH:mm"
+                                  BackgroundColor="LightGray"/>
+                    </StackLayout>
+                </Grid>
+
+                <Button Text="➕ Agregar Recordatorio"
+                        Command="{Binding AgregarRecordatorioCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="25"
+                        FontAttributes="Bold"/>
+            </StackLayout>
+        </Frame>
+
+        
+        <RefreshView Grid.Row="1" 
+                     Command="{Binding RefreshCommand}"
+                     IsRefreshing="{Binding IsLoading}">
+            <CollectionView ItemsSource="{Binding Recordatorios}"
+                          BackgroundColor="Transparent">
+                <CollectionView.EmptyView>
+                    <StackLayout Padding="50" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center">
+                        <Label Text="📋"
+                               FontSize="48"
+                               HorizontalOptions="Center"/>
+                        <Label Text="No hay recordatorios"
+                               FontSize="18"
+                               TextColor="#666"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Agrega tu primer recordatorio arriba"
+                               FontSize="14"
+                               TextColor="#999"
+                               HorizontalOptions="Center"/>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="15,5">
+                            <Frame BackgroundColor="White"
+                                   CornerRadius="10"
+                                   HasShadow="True"
+                                   Padding="15">
+                                <Frame.Triggers>
+                                    <DataTrigger TargetType="Frame"
+                                               Binding="{Binding Activo}"
+                                               Value="False">
+                                        <Setter Property="BackgroundColor" Value="#F0F0F0"/>
+                                    </DataTrigger>
+                                </Frame.Triggers>
+
+                                <Grid ColumnDefinitions="*,Auto,Auto">
+                                    
+                                    <StackLayout Grid.Column="0" Spacing="5">
+                                        <Label Text="{Binding Texto}"
+                                               FontSize="16"
+                                               FontAttributes="Bold"
+                                               TextColor="#333">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
+                                                           Binding="{Binding Activo}"
+                                                           Value="False">
+                                                    <Setter Property="TextColor" Value="#999"/>
+                                                    <Setter Property="TextDecorations" Value="Strikethrough"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+
+                                        <Label Text="{Binding FechaHoraFormateada}"
+                                               FontSize="12"
+                                               TextColor="#666"/>
+
+                                        <Label Text="{Binding TiempoRestante}"
+                                               FontSize="12"
+                                               TextColor="#FF9800"
+                                               FontAttributes="Bold"/>
+                                    </StackLayout>
+
+                                
+                                    <Button Grid.Column="1"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RecordatoriosViewModel}}, Path=ToggleActivoCommand}"
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="Transparent"
+                                            FontSize="20"
+                                            WidthRequest="50"
+                                            HeightRequest="50">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="Button"
+                                                       Binding="{Binding Activo}"
+                                                       Value="True">
+                                                <Setter Property="Text" Value="✅"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Button"
+                                                       Binding="{Binding Activo}"
+                                                       Value="False">
+                                                <Setter Property="Text" Value="⭕"/>
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+
+                        
+                                    <Button Grid.Column="2"
+                                            Text="🗑️"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:RecordatoriosViewModel}}, Path=EliminarRecordatorioCommand}"
+                                            CommandParameter="{Binding}"
+                                            BackgroundColor="Transparent"
+                                            TextColor="#F44336"
+                                            FontSize="20"
+                                            WidthRequest="50"
+                                            HeightRequest="50"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <!-- Codigo generado por IA  -->
+        <ActivityIndicator Grid.Row="1"
+                         IsVisible="{Binding IsLoading}"
+                         IsRunning="{Binding IsLoading}"
+                         Color="#4CAF50"
+                         Scale="1.5"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"/>
+    </Grid>
+    </Cont
