@@ -17,14 +17,16 @@
            ContentTemplate="{DataTemplate views:RecordatoriosView}"
            Route="RecordatoriosView" />
         </Tab>
-        
+
         <ShellContent
             Title="Weather"
             ContentTemplate="{DataTemplate views:WeatherPage}"/>
-        
-        <ShellContent
-            Title="About"
-            ContentTemplate="{DataTemplate views:AboutPage}"/>
+
+        <Tab Title="Acerca de" Icon="about.png">
+            <ShellContent
+         ContentTemplate="{DataTemplate views:AboutView}"
+         Route="AboutView" />
+        </Tab>
 
     </TabBar>
 

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppApuntes2CRR.ViewModels"
+             xmlns:views="clr-namespace:AppApuntes2CRR.Views;assembly=AppApuntes2CRR"
+             x:Class="AppApuntes2CRR.Views.AboutView"
+             Title="Acerca del Equipo"
+             BackgroundColor="#F8F9FA">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="0" Spacing="0">
+
+            <Frame BackgroundColor="#6C5CE7"
+                CornerRadius="30"
+                HasShadow="True"
+                Margin="0,0,0,20"
+                Padding="20,40,20,30">
+
+                <StackLayout Spacing="10">
+                    <Label Text="👥"
+                           FontSize="48"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Nuestro Equipo"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Conoce a los desarrolladores detrás de esta aplicación"
+                           FontSize="16"
+                           TextColor="#DDD6FE"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+
+            <CollectionView ItemsSource="{Binding TeamMembers}"
+                           BackgroundColor="Transparent"
+                           Margin="0,0,0,20">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" 
+                                   Span="1"
+                                   VerticalItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <views:TeamMemberCard BindingContext="{Binding}"
+                                                BackgroundColor="{Binding ., Converter={StaticResource TeamMemberToColorConverter}}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="20"
+                   HasShadow="True"
+                   Margin="20,0,20,20"
+                   Padding="20">
+                <StackLayout Spacing="15">
+                    <Label Text="📱 Acerca del Proyecto"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#2C3E50"/>
+
+                    <Label Text="Esta aplicación fue desarrollada como parte del taller grupal de desarrollo móvil con .NET MAUI, implementando el patrón MVVM y las mejores prácticas de desarrollo."
+                           FontSize="14"
+                           TextColor="#7F8C8D"
+                           LineBreakMode="WordWrap"/>
+
+                    <Grid ColumnDefinitions="Auto,*" 
+                          RowDefinitions="Auto,Auto,Auto"
+                          ColumnSpacing="10"
+                          RowSpacing="8">
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="🛠️"
+                               FontSize="16"/>
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="Tecnología: .NET MAUI"
+                               FontSize="14"
+                               TextColor="#34495E"/>
+
+                        <Label Grid.Row="1" Grid.Column="0"
+                               Text="🏗️"
+                               FontSize="16"/>
+                        <Label Grid.Row="1" Grid.Column="1"
+                               Text="Patrón: MVVM"
+                               FontSize="14"
+                               TextColor="#34495E"/>
+
+                        <Label Grid.Row="2" Grid.Column="0"
+                               Text="📅"
+                               FontSize="16"/>
+                        <Label Grid.Row="2" Grid.Column="1"
+                               Text="Año: 2024"
+                               FontSize="14"
+                               TextColor="#34495E"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Padding="20" Spacing="10">
+                <Label Text="Gracias por usar nuestra aplicación!"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#6C5CE7"
+                       HorizontalOptions="Center"/>
+                <Label Text="Desarrollado por Johhan, Mathias y Jean"
+                       FontSize="12"
+                       TextColor="#95A5A6"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

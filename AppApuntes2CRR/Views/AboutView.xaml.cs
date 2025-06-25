@@ -1,8 +1,8 @@
 namespace AppApuntes2CRR.Views;
 
-public partial class AboutPage : ContentPage
+public partial class AboutView : ContentPage
 {
-	public AboutPage()
+	public AboutView()
 	{
 		InitializeComponent();
 	}
