@@ -11,11 +11,13 @@
         <ShellContent
             Title="Notes"
             ContentTemplate="{DataTemplate views:AllNotesPage}"/>
-        
-        <ShellContent
-            Title="Reminders"
-            ContentTemplate="{DataTemplate views:RemindersPage}"/>
 
+        <Tab Title="Recordatorios" Icon="reminder.png">
+            <ShellContent
+           ContentTemplate="{DataTemplate views:RecordatoriosView}"
+           Route="RecordatoriosView" />
+        </Tab>
+        
         <ShellContent
             Title="Weather"
             ContentTemplate="{DataTemplate views:WeatherPage}"/>

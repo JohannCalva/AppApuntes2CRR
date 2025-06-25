@@ -1,8 +1,8 @@
 namespace AppApuntes2CRR.Views;
 
-public partial class RemindersPage : ContentPage
+public partial class RecordatoriosView : ContentPage
 {
-	public RemindersPage()
+	public RecordatoriosView()
 	{
 		InitializeComponent();
 	}

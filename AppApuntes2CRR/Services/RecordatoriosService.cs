@@ -41,7 +41,7 @@ namespace TallerGrupalMMVC.Services
         {
             try
             {
-                var json = JsonConvert.SerializeObject(recordatorios, Formatting.Indented);
+                var json = Newtonsoft.Json.JsonConvert.SerializeObject(recordatorios, Newtonsoft.Json.Formatting.Indented);
                 await File.WriteAllTextAsync(_filePath, json);
             }
             catch (Exception ex)
