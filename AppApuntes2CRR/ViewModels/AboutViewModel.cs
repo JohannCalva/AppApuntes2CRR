@@ -38,8 +38,8 @@ namespace TallerGrupalMMVC.ViewModels
                     Age = 21,
                     FavoriteSport = "Fútbol",
                     PhotoPath = "https://purina.cl/sites/default/files/2025-04/razas-de-gatos.jpg", 
-                    Role = "Desarrolladora Backend",
-                    Description = "Apasionado por el desarrollo móvil ,interfaces de usuario y pro player en Fortnite"
+                    Role = "Desarrollador Backend",
+                    Description = "Apasionado por el desarrollo móvil, API, interfaces de usuario y pro player en Fortnite"
                 },
                 new TeamMember
                 {
@@ -47,7 +47,7 @@ namespace TallerGrupalMMVC.ViewModels
                     Age = 22,
                     FavoriteSport = "Taekwando",
                     PhotoPath = "https://i.blogs.es/fed92e/topicochinos/450_1000.webp",
-                    Role = "Desarrolladora Backend",
+                    Role = "Desarrollador Backend",
                     Description = "Especialista en APIs y arquitectura de software y profundo fan del Anime y Marvel."
                 },
                 new TeamMember
@@ -57,7 +57,7 @@ namespace TallerGrupalMMVC.ViewModels
                     FavoriteSport = "Baloncesto",
                     PhotoPath = "https://i.pinimg.com/736x/95/18/c7/9518c7baecedd451cc171af7ec775a51.jpg",
                     Role = "Desarrollador Frontend",
-                    Description = "Creativo enfocado en desarrollo front y apasionado por el Fortnite ."
+                    Description = "Creativo enfocado en desarrollo front y apasionado por el Fortnite."
                 },
 
             };

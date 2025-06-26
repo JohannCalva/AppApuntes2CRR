@@ -102,7 +102,7 @@
                                Text="📅"
                                FontSize="16"/>
                         <Label Grid.Row="2" Grid.Column="1"
-                               Text="Año: 2024"
+                               Text="Año: 2025"
                                FontSize="14"
                                TextColor="#34495E"/>
                     </Grid>

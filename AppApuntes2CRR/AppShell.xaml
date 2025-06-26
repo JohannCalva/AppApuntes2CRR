@@ -15,13 +15,13 @@
 
         <ShellContent
             Title="Recordatorios"
-           Icon="{OnPlatform 'remindericon.png'}"
+           Icon="{OnPlatform 'remindericn.png'}"
            ContentTemplate="{DataTemplate views:RecordatoriosView}"
            Route="RecordatoriosView" />
 
         <ShellContent
             Title="Clima"
-            Icon="{OnPlatform 'weathericon.png'}"
+            Icon="{OnPlatform 'weathericn.png'}"
             ContentTemplate="{DataTemplate views:WeatherPage}"/>
 
 
