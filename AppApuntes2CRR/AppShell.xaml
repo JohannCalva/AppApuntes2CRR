@@ -10,23 +10,26 @@
     <TabBar>
         <ShellContent
             Title="Notas"
+            Icon="{OnPlatform 'notes.png'}"
             ContentTemplate="{DataTemplate views:AllNotesPage}"/>
 
-        <Tab Title="Recordatorios" Icon="reminder.png">
-            <ShellContent
+        <ShellContent
+            Title="Recordatorios"
+           Icon="{OnPlatform 'remindericon.png'}"
            ContentTemplate="{DataTemplate views:RecordatoriosView}"
            Route="RecordatoriosView" />
-        </Tab>
 
         <ShellContent
-            Title="Weather"
+            Title="Clima"
+            Icon="{OnPlatform 'weathericon.png'}"
             ContentTemplate="{DataTemplate views:WeatherPage}"/>
 
-        <Tab Title="Acerca de" Icon="about.png">
-            <ShellContent
-         ContentTemplate="{DataTemplate views:AboutView}"
-         Route="AboutView" />
-        </Tab>
+
+         <ShellContent
+             Title="Acerca de"
+             Icon="{OnPlatform 'about.png'}"
+             ContentTemplate="{DataTemplate views:AboutView}"
+             Route="AboutView" />
 
     </TabBar>
 
