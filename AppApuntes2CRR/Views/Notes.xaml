@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:AppApuntes2CRR.Models"
+             x:Class="AppApuntes2CRR.Views.Notes"
+             x:DataType="models:Note"
+             Title="Editor de Notas"
+             BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="15">
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="10"
+                   HasShadow="True"
+                   Padding="10">
+                <Editor x:Name="Texto1"
+                        Placeholder="📝 Escribe tu nota aquí"
+                        Text="{Binding Text}"
+                        HeightRequest="150"
+                        FontSize="16"
+                        TextColor="#333"
+                        AutoSize="TextChanges"
+                        BackgroundColor="Transparent" />
+            </Frame>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+
+                <Button Text="💾 Guardar"
+                        Clicked="GuardarBtn_Clicked"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        HeightRequest="50" />
+
+                <Button Grid.Column="1"
+                        Text="🗑️ Borrar"
+                        Clicked="DeleteButton_Clicked"
+                        BackgroundColor="#F44336"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="20"
+                        HeightRequest="50" />
+            </Grid>
+
+            <Label x:Name="TextoArchivo"
+                   FontSize="14"
+                   TextColor="#666"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

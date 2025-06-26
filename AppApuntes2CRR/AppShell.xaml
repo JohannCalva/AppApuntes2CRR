@@ -9,7 +9,7 @@
 
     <TabBar>
         <ShellContent
-            Title="Notes"
+            Title="Notas"
             ContentTemplate="{DataTemplate views:AllNotesPage}"/>
 
         <Tab Title="Recordatorios" Icon="reminder.png">
