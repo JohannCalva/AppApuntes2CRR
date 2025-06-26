@@ -23,6 +23,8 @@ namespace AppApuntes2CRR.ViewModels
                 {
                     _weatherData = value;
                     OnPropertyChanged();
+                    //Generado por ChatGPT para que se actualice la hora cuando cambia el tiempo
+                    OnPropertyChanged(nameof(OnlyHour)); // ← Importante
                 }
             }
         }
@@ -42,6 +44,19 @@ namespace AppApuntes2CRR.ViewModels
             WeatherServices weatherServices = new WeatherServices();
             WeatherDataInfo = await weatherServices.GetCurrentLocationWeatherAsync();
         }
+
+        //Codigo generado con ChatGPT para que devuelva solo la hora del string time en formato HH:mm
+        public string OnlyHour
+        {
+            get
+            {
+                if (DateTime.TryParse(WeatherDataInfo?.current?.time, out DateTime parsedDate))
+                    return parsedDate.ToString("HH:mm"); // Ej: 22:45
+                return string.Empty;
+            }
+        }
+
+        public string FechaActual => DateTime.Now.ToString("dd/MM");
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string name = "") =>

@@ -15,7 +15,7 @@ namespace AppApuntes2CRR.Services
             string latitude_str = latitude.ToString().Replace(",", ".");
             string longitude_str = longitude.ToString().Replace(",", ".");
 
-            string url = $"https://api.open-meteo.com/v1/forecast?latitude={latitude_str}&longitude={longitude_str}&current=temperature_2m,relative_humidity_2m,rain";
+            string url = $"https://api.open-meteo.com/v1/forecast?latitude={latitude_str}&longitude={longitude_str}&current=temperature_2m,relative_humidity_2m,rain&timezone=auto";
 
             using (HttpClient client = new HttpClient())
             {
